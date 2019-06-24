@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<div class="container">
+  <h1>welcom to the poll list </h1>
+  <ul>
+    {% for poll in polls%}
+    <li><a href="{% url 'poll:detail' poll.id %}">{{ poll }}</a></li>
+     <ul>
+       {% for choice in poll.choice_set.all %}
+         <li>{{ choice.choice_text}}</li>
+
+       {% endfor %}
+     </ul>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

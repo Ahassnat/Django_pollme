@@ -1,0 +1,43 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+                                                                      {%comment%}
+                                                                      from lec 34
+                                                                      {% if messages %}
+                                                                        <ul class="messages">
+                                                                            {% for message in messages %}
+                                                                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                                                            {% endfor %}
+                                                                        </ul>
+                                                                        {% endif %}
+                                                                      {% endcomment%}
+
+
+{% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+
+
+<h1>Welcome to the poll details </h1>
+  {{poll}}
+                                                  {%comment%}
+                                                   we add action in <form  action="index.html"> this page we want to go to it
+                                                     in the form benath
+                                                  {% endcomment%}
+
+  <form action="{% url 'poll:vote' poll.id %}" method="post">
+    {% csrf_token %}
+    {% for choice in poll.choice_set.all %}
+      <input type="radio" name="choice" id="choice {{forloop.counter}}" value="{{ choice.id }}">
+
+      <label for="choice {{ forloop.counter }}" > {{ choice.choice_text}}</label>
+      <br>
+    {%endfor%}
+    <input type="submit" value="vote">
+  </form>
+{% endblock %}

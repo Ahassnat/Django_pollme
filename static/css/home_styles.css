@@ -1,0 +1,13 @@
+
+h1,h3{
+  font-style: italic;
+  color: gray;
+}
+body{
+ background-image:   url('../img/mikael-kristenson-242070-unsplash.jpg');
+
+}
+#home-content{
+  text-align: center;
+  padding-top: 20%;
+}

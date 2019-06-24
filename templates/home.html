@@ -1,0 +1,27 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/home_styles.css' %}" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+      <div class="cal">
+        <div id="home-content">
+          <h1>PollMe - Get stared</h1>
+          <h3> Welcome To Home Page</h3>
+          <hr>
+          <button type="button" class="btn btn-light btn-lg">Get Started!</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+   <button type="button" class="btn btn-danger">Action</button>
+
+
+{% endblock %}
